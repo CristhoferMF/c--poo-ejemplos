@@ -29,5 +29,18 @@ namespace Ejercicio03
             txtDescuento.Text = desc.ToString("0.0 S/.");
             txtTotal.Text = total.ToString("0.0 S/.");
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Venta objVenta = new Venta();
+            string val = cmbProducto.SelectedItem.ToString();
+            txtPrecio.Text= objVenta.AsignarPrecio(val).ToString();
+            txtCantidad.Text = "0";
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

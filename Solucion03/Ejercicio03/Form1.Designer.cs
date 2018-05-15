@@ -34,7 +34,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtProducto = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.txtDescuento = new System.Windows.Forms.TextBox();
@@ -42,6 +41,7 @@
             this.btnCalcular = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.cmbProducto = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -104,16 +104,9 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Total";
             // 
-            // txtProducto
-            // 
-            this.txtProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProducto.Location = new System.Drawing.Point(87, 51);
-            this.txtProducto.Name = "txtProducto";
-            this.txtProducto.Size = new System.Drawing.Size(100, 22);
-            this.txtProducto.TabIndex = 2;
-            // 
             // txtPrecio
             // 
+            this.txtPrecio.Enabled = false;
             this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecio.Location = new System.Drawing.Point(87, 76);
             this.txtPrecio.Name = "txtPrecio";
@@ -170,11 +163,28 @@
             this.label8.TabIndex = 4;
             this.label8.Text = "Por Monto mayor a 500 -> 10% ";
             // 
+            // cmbProducto
+            // 
+            this.cmbProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProducto.FormattingEnabled = true;
+            this.cmbProducto.Items.AddRange(new object[] {
+            "Seleccione",
+            "Mouse",
+            "Teclado",
+            "Monitor",
+            "Impresora"});
+            this.cmbProducto.Location = new System.Drawing.Point(87, 54);
+            this.cmbProducto.Name = "cmbProducto";
+            this.cmbProducto.Size = new System.Drawing.Size(100, 21);
+            this.cmbProducto.TabIndex = 5;
+            this.cmbProducto.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 320);
+            this.ClientSize = new System.Drawing.Size(346, 279);
+            this.Controls.Add(this.cmbProducto);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnCalcular);
@@ -182,7 +192,6 @@
             this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.txtPrecio);
-            this.Controls.Add(this.txtProducto);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -191,6 +200,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,7 +214,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtProducto;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.TextBox txtDescuento;
@@ -212,6 +221,7 @@
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbProducto;
     }
 }
 

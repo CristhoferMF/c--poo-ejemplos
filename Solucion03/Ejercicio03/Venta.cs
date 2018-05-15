@@ -23,7 +23,29 @@ namespace Ejercicio03
             this.precio = precio;
             this.cantidad = cantidad;
         }
-        public double CalcularMonto()
+        public double AsignarPrecio(string valor)
+        {
+            switch (valor)
+            {
+                case "Mouse":
+                    this.precio = 40;
+                    break;
+                case "Teclado":
+                    this.precio = 65;
+                    break;
+                case "Monitor":
+                    this.precio = 280;
+                    break;
+                case "Impresora":
+                    this.precio = 150;
+                    break;
+                case "Seleccione":
+                    this.precio = 0;
+                    break;
+            }
+            return this.precio;
+        }
+        private double CalcularMonto()
         {
             double monto = 0;
             monto = this.precio * this.cantidad;

@@ -1,0 +1,9 @@
+D:\CMF\Solucion01\Ejercicio01\bin\Debug\Ejercicio01.exe.config
+D:\CMF\Solucion01\Ejercicio01\bin\Debug\Ejercicio01.exe
+D:\CMF\Solucion01\Ejercicio01\bin\Debug\Ejercicio01.pdb
+D:\CMF\Solucion01\Ejercicio01\obj\Debug\Ejercicio01.csprojResolveAssemblyReference.cache
+D:\CMF\Solucion01\Ejercicio01\obj\Debug\Ejercicio01.Properties.Resources.resources
+D:\CMF\Solucion01\Ejercicio01\obj\Debug\Ejercicio01.csproj.GenerateResource.Cache
+D:\CMF\Solucion01\Ejercicio01\obj\Debug\Ejercicio01.exe
+D:\CMF\Solucion01\Ejercicio01\obj\Debug\Ejercicio01.pdb
+D:\CMF\Solucion01\Ejercicio01\obj\Debug\Ejercicio01.Form1.resources

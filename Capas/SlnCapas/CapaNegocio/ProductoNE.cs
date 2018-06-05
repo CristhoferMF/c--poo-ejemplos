@@ -19,5 +19,9 @@ namespace CapaNegocio
         {
             productoCD.Actualizar(productoCE);
         }
+        public int Nuevo(ProductoCE productoCE)
+        {
+            return productoCD.Nuevo(productoCE);
+        }
     }
 }

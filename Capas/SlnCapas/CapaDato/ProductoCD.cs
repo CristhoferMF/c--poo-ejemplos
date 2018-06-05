@@ -36,6 +36,7 @@ namespace CapaDato
                 cmd.Parameters.AddWithValue("@id", productoCE.id);
                 //Ejecutar el comando
                 cmd.ExecuteNonQuery();
+                sql.Close();
             }
             catch (SqlException e)
             {
@@ -43,5 +44,42 @@ namespace CapaDato
                 throw;
             }
         }
+
+        public int Nuevo(ProductoCE productoCE)
+        {
+            try
+            {
+                ConexionCD conexion = new ConexionCD();
+                SqlConnection sql = conexion.ConectarSQL();
+                sql.Open();
+                SqlCommand cmd = sql.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "insert into producto(descripcion,categoria,precio) values(" +
+                    "@descripcion,@categoria,@precio)";
+
+                cmd.Parameters.AddWithValue("@descripcion", productoCE.descipcion);
+                cmd.Parameters.AddWithValue("@categoria", productoCE.categoria);
+                cmd.Parameters.AddWithValue("@precio", productoCE.precio);
+
+                cmd.ExecuteNonQuery();
+
+                cmd.CommandText = "SELECT max(id) as nuevoId from producto";
+                //cmd.Parameters["@descripcion"].Value = productoCE.descipcion;
+                SqlDataReader dr= cmd.ExecuteReader();
+                //leer el datareader
+                dr.Read();
+                //leer el valor de la columna en el dataReader
+                productoCE.id= Convert.ToInt32(dr["nuevoId"].ToString());     
+
+                sql.Close();
+                return productoCE.id;
+            }
+            catch (SqlException e)
+            {
+                Console.Write(e.Message);
+                throw;
+            }
+        }
+
     }
 }

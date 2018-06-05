@@ -32,6 +32,7 @@ namespace CapaDato
                 cmd.Parameters.AddWithValue("@telefono", clienteCE.telefono);
                 cmd.Parameters.AddWithValue("@id", clienteCE.id);
                 cmd.ExecuteNonQuery();
+                sql.Close();
             }
             catch (SqlException e)
             {
@@ -39,5 +40,6 @@ namespace CapaDato
                 throw;
             }
         }
+        
     }
 }

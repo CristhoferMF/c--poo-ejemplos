@@ -26,16 +26,38 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtId.Text);
-            string descripcion = txtDescripcion.Text;
-            string categoria = txtCategoria.Text;
-            double precio =Convert.ToDouble(txtPrecio.Text);
-            //Instanciar un objeto CE
-            ProductoCE productoCE = new ProductoCE(id,descripcion,categoria,precio);
-            //Instanciar un objeto Cn
-            ProductoNE productoNE = new ProductoNE();
-            //Ejecutar el metodo 
-            productoNE.Actualizar(productoCE);
+            try
+            {
+                int id;
+
+                if (txtId.Text.Length == 0) { id = 0; } else { id = Convert.ToInt32(txtId.Text); }
+
+                string descripcion = txtDescripcion.Text;
+                string categoria = txtCategoria.Text;
+                double precio;
+                if (txtPrecio.Text.Length == 0) { precio = 0; } else { precio = Convert.ToDouble(txtPrecio.Text); }
+
+                //Instanciar un objeto CE
+                ProductoCE productoCE = new ProductoCE(id, descripcion, categoria, precio);
+                //Instanciar un objeto Cn
+                ProductoNE productoNE = new ProductoNE();
+                //Ejecutar el metodo 
+                if (id == 0)
+                {
+                    txtId.Text= productoNE.Nuevo(productoCE).ToString();
+                    MessageBox.Show("Se ha creado un nuevo producto", "Titulo");
+                }
+                else
+                {
+                    productoNE.Actualizar(productoCE);
+                    MessageBox.Show("Se ha actualizado un nuevo producto", "Titulo");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                throw;
+            }
         }
     }
 }

@@ -30,7 +30,7 @@ namespace CapaDato
                     " descripcion=@descripcion," +
                     "categoria=@categoria," +
                     "precio=@precio WHERE id=@id";
-                cmd.Parameters.AddWithValue("@descripcion",productoCE.descipcion);
+                cmd.Parameters.AddWithValue("@descripcion",productoCE.descripcion);
                 cmd.Parameters.AddWithValue("@categoria", productoCE.categoria);
                 cmd.Parameters.AddWithValue("@precio",productoCE.precio);
                 cmd.Parameters.AddWithValue("@id", productoCE.id);
@@ -57,7 +57,7 @@ namespace CapaDato
                 cmd.CommandText = "insert into producto(descripcion,categoria,precio) values(" +
                     "@descripcion,@categoria,@precio)";
 
-                cmd.Parameters.AddWithValue("@descripcion", productoCE.descipcion);
+                cmd.Parameters.AddWithValue("@descripcion", productoCE.descripcion);
                 cmd.Parameters.AddWithValue("@categoria", productoCE.categoria);
                 cmd.Parameters.AddWithValue("@precio", productoCE.precio);
 
@@ -105,6 +105,45 @@ namespace CapaDato
             catch (SqlException e)
             {
                 Console.Write(e.Message);
+                throw;
+            }
+        }
+        public List<ProductoCE> BuscarProducto(string condicion)
+        {
+            try
+            {
+                //crear el objeto de la conexion
+                ConexionCD conexion = new ConexionCD();
+                //crear el objeto sqlConnection
+                SqlConnection sql = conexion.ConectarSQL();
+                //aperturamos la conexion
+                sql.Open();
+                //crear un coomando
+                SqlCommand cmd = sql.CreateCommand();
+                //tipo de coomando
+                cmd.CommandType = CommandType.Text;
+                //Asigno la instruccion Sql
+                cmd.CommandText = "select * from producto where descripcion like '%' + @descripcion + '%'";
+                cmd.Parameters.AddWithValue("@descripcion", condicion);
+                //Ejecutar el comando
+                SqlDataReader dr = cmd.ExecuteReader();
+                //Declarar la coleccion 
+                List<ProductoCE> miLista = new List<ProductoCE>();
+                //Leer SqlDataReader
+                while (dr.Read())
+                {
+                    ProductoCE productoCE = new ProductoCE();
+                    productoCE.id = Convert.ToInt32(dr["id"].ToString());
+                    productoCE.descripcion = dr["descripcion"].ToString();
+                    productoCE.categoria = dr["categoria"].ToString();
+                    productoCE.precio = Convert.ToDouble(dr["precio"].ToString());
+                    miLista.Add(productoCE);
+                }
+                return miLista;
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
                 throw;
             }
         }

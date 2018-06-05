@@ -27,5 +27,9 @@ namespace CapaNegocio
         {
             productoCD.Eliminar(productoCE);
         }
+        public List<ProductoCE> BuscarProducto(string condicion)
+        {
+            return productoCD.BuscarProducto(condicion);
+        }
     }
 }

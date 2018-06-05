@@ -22,7 +22,7 @@ namespace CapaPresentacion
 
         private void FrmCliente_Load(object sender, EventArgs e)
         {
-
+            txtId.Focus();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -78,6 +78,12 @@ namespace CapaPresentacion
             {
                 caja.Clear();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            limpiarControles();
+            txtId.Focus();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace CapaPresentacion
 
         private void FrmProducto_Load(object sender, EventArgs e)
         {
-
+            txtId.Focus();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -87,6 +87,19 @@ namespace CapaPresentacion
             {
                 caja.Clear();
             }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            limpiarControles();
+            txtId.Focus();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string condicion = txtBuscar.Text;
+            ProductoNE productoNE = new ProductoNE();
+            dgvBuscar.DataSource = productoNE.BuscarProducto(condicion);
         }
     }
 }

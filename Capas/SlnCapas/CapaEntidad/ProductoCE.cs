@@ -9,7 +9,7 @@ namespace CapaEntidad
     public class ProductoCE
     {
         public int id { get; set; }
-        public string descipcion { get; set; }
+        public string descripcion { get; set; }
         public string categoria { get; set; }
         public double precio { get; set; }
         public ProductoCE()
@@ -19,7 +19,7 @@ namespace CapaEntidad
         public ProductoCE(int _id,string _descripcion,string _categoria,double _precio)
         {
             this.id = _id;
-            this.descipcion = _descripcion;
+            this.descripcion = _descripcion;
             this.categoria = _categoria;
             this.precio = _precio;
         }

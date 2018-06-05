@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{37AF7E8E-4DF3-4805-BAE9-E6DDF921C244}</ProjectGuid>
+    <ProjectGuid>{FC42892D-FD92-44F7-BE50-88984DA71DEC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CapaEntidad</RootNamespace>
-    <AssemblyName>CapaEntidad</AssemblyName>
+    <RootNamespace>CapaDato</RootNamespace>
+    <AssemblyName>CapaDato</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,8 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClienteCE.cs" />
-    <Compile Include="ProductoCE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

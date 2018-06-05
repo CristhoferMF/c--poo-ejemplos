@@ -59,5 +59,34 @@ namespace CapaPresentacion
                 throw;
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text.Length > 0)
+            {
+                if(MessageBox.Show("Deseas Borrar", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    //Instanciar un objeto CE
+                    ProductoCE productoCE = new ProductoCE();
+                    productoCE.id = Convert.ToInt32(txtId.Text);
+                    //Instanciar un objeto Cn
+                    ProductoNE productoNE = new ProductoNE();
+                    productoNE.Eliminar(productoCE);
+                    limpiarControles();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debera Ingresar un ID");
+            }
+
+        }
+        private void limpiarControles()
+        {
+            foreach (TextBox caja in Controls.OfType<TextBox>())
+            {
+                caja.Clear();
+            }
+        }
     }
 }

@@ -23,5 +23,9 @@ namespace CapaNegocio
         {
             return productoCD.Nuevo(productoCE);
         }
+        public void Eliminar(ProductoCE productoCE)
+        {
+            productoCD.Eliminar(productoCE);
+        }
     }
 }

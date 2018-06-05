@@ -22,5 +22,9 @@ namespace CapaEntidad
             this.direccion = _direccion;
             this.telefono = _telefono;
         }
+        public ClienteCE()
+        {
+
+        }
     }
 }

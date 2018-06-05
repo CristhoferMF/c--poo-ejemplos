@@ -51,7 +51,7 @@ namespace CapaDato
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "insert into cliente(nombre,numruc,direccion,telefono) "+
                     "values(@nombre,@numruc,@direccion,@telefono)";
-
+                
                 cmd.Parameters.AddWithValue("@nombre", clienteCE.nombre);
                 cmd.Parameters.AddWithValue("@numruc", clienteCE.numruc);
                 cmd.Parameters.AddWithValue("@direccion", clienteCE.direccion);
@@ -67,6 +67,33 @@ namespace CapaDato
                 
                 sql.Close();
                 return clienteCE.id;
+            }
+            catch (SqlException e)
+            {
+                Console.Write(e.Message);
+                throw;
+            }
+        }
+        public void Eliminar(ClienteCE clienteCE)
+        {
+            try
+            {
+                //crear el objeto de la conexion
+                ConexionCD conexion = new ConexionCD();
+                //crear el objeto sqlConnection
+                SqlConnection sql = conexion.ConectarSQL();
+                //aperturamos la conexion
+                sql.Open();
+                //crear un coomando
+                SqlCommand cmd = sql.CreateCommand();
+                //tipo de coomando
+                cmd.CommandType = CommandType.Text;
+                //Asigno la instruccion Sql
+                cmd.CommandText = "delete from cliente WHERE id=@id";
+                cmd.Parameters.AddWithValue("@id", clienteCE.id);
+                //Ejecutar el comando
+                cmd.ExecuteNonQuery();
+                sql.Close();
             }
             catch (SqlException e)
             {

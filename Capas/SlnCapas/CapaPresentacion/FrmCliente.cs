@@ -27,7 +27,9 @@ namespace CapaPresentacion
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtId.Text);
+            int id;
+            if (txtId.Text.Length == 0) { id = 0; } else { id = Convert.ToInt32(txtId.Text); }
+            
             string nombre = txtNombre.Text;
             string numruc = txtRuc.Text;
             string direccion = txtDireccion.Text;
@@ -35,7 +37,18 @@ namespace CapaPresentacion
 
             ClienteCE clienteCE = new ClienteCE(id,nombre,numruc,direccion,telefono);
             ClienteNE clienteNE = new ClienteNE();
-            clienteNE.Actualizar(clienteCE);
+            if (id == 0)
+            {
+                txtId.Text = clienteNE.Nuevo(clienteCE).ToString();
+                MessageBox.Show("Se ha añadido un nuevo Cliente", "Titulo");
+                txtId.Enabled = false;
+            }
+            else
+            {
+                clienteNE.Actualizar(clienteCE);
+                MessageBox.Show("Se ha actualizado un  Cliente", "Titulo");
+            }
+
         }
     }
 }

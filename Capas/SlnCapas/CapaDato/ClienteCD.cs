@@ -40,6 +40,40 @@ namespace CapaDato
                 throw;
             }
         }
-        
+        public int Nuevo(ClienteCE clienteCE)
+        {
+            try
+            {
+                ConexionCD conexion = new ConexionCD();
+                SqlConnection sql = conexion.ConectarSQL();
+                sql.Open();
+                SqlCommand cmd = sql.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "insert into cliente(nombre,numruc,direccion,telefono) "+
+                    "values(@nombre,@numruc,@direccion,@telefono)";
+
+                cmd.Parameters.AddWithValue("@nombre", clienteCE.nombre);
+                cmd.Parameters.AddWithValue("@numruc", clienteCE.numruc);
+                cmd.Parameters.AddWithValue("@direccion", clienteCE.direccion);
+                cmd.Parameters.AddWithValue("@telefono", clienteCE.telefono);
+                Console.Write(cmd.CommandText.ToString());
+                cmd.ExecuteNonQuery();
+
+                cmd.CommandText = "select max(id) as maxid from cliente where nombre=@nombre";
+                cmd.Parameters["@nombre"].Value = clienteCE.nombre;
+                SqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                clienteCE.id = Convert.ToInt32(dr["maxid"].ToString());
+                
+                sql.Close();
+                return clienteCE.id;
+            }
+            catch (SqlException e)
+            {
+                Console.Write(e.Message);
+                throw;
+            }
+        }
+
     }
 }

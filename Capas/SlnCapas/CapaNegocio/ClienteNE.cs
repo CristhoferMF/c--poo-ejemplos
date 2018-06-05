@@ -15,5 +15,9 @@ namespace CapaNegocio
         {
             clienteCD.Actualizar(clienteCE);
         }
+        public int Nuevo(ClienteCE clienteCE)
+        {
+            return clienteCD.Nuevo(clienteCE);
+        }
     }
 }

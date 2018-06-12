@@ -42,14 +42,19 @@
   <ItemGroup>
     <Compile Include="ClienteCD.cs" />
     <Compile Include="ConexionCD.cs" />
+    <Compile Include="DetalleCD.cs" />
     <Compile Include="ProductoCD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VentaCD.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
       <Project>{37af7e8e-4df3-4805-bae9-e6ddf921c244}</Project>
       <Name>CapaEntidad</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

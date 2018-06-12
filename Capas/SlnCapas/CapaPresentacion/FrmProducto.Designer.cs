@@ -60,6 +60,7 @@
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(141, 31);
             this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(100, 29);
             this.txtId.TabIndex = 1;
             // 
@@ -96,7 +97,7 @@
             this.txtCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategoria.Location = new System.Drawing.Point(141, 101);
             this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(100, 29);
+            this.txtCategoria.Size = new System.Drawing.Size(391, 29);
             this.txtCategoria.TabIndex = 1;
             // 
             // label4
@@ -166,6 +167,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(438, 20);
             this.txtBuscar.TabIndex = 15;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // dgvBuscar
             // 
@@ -174,6 +176,8 @@
             this.dgvBuscar.Name = "dgvBuscar";
             this.dgvBuscar.Size = new System.Drawing.Size(540, 332);
             this.dgvBuscar.TabIndex = 16;
+            this.dgvBuscar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBuscar_CellContentClick);
+            this.dgvBuscar.SelectionChanged += new System.EventHandler(this.dgvBuscar_SelectionChanged);
             // 
             // FrmProducto
             // 

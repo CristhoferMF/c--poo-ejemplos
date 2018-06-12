@@ -15,7 +15,7 @@ namespace CapaDato
             //Intanciar SqlConnectionStringBuilder
             SqlConnectionStringBuilder cadenaConexion = new SqlConnectionStringBuilder();
             cadenaConexion.DataSource = @"DESKTOP-QDCMGIV\MS_SQL";
-            cadenaConexion.InitialCatalog = "BD_2018FE401";
+            cadenaConexion.InitialCatalog = "BDFE401";
             cadenaConexion.UserID = "sa";
             cadenaConexion.Password = "181003";
 

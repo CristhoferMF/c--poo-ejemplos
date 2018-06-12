@@ -41,6 +41,10 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.dgvBuscar = new System.Windows.Forms.DataGridView();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBuscar)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDireccion
@@ -166,11 +170,41 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dgvBuscar
+            // 
+            this.dgvBuscar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBuscar.Location = new System.Drawing.Point(12, 299);
+            this.dgvBuscar.Name = "dgvBuscar";
+            this.dgvBuscar.Size = new System.Drawing.Size(540, 332);
+            this.dgvBuscar.TabIndex = 19;
+            this.dgvBuscar.SelectionChanged += new System.EventHandler(this.dgvBuscar_SelectionChanged);
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(12, 272);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(438, 20);
+            this.txtBuscar.TabIndex = 18;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(456, 269);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(96, 23);
+            this.btnBuscar.TabIndex = 17;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 304);
+            this.ClientSize = new System.Drawing.Size(568, 643);
+            this.Controls.Add(this.dgvBuscar);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnActualizar);
@@ -187,6 +221,7 @@
             this.Name = "FrmCliente";
             this.Text = "FrmCliente";
             this.Load += new System.EventHandler(this.FrmCliente_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBuscar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,5 +242,8 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.DataGridView dgvBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

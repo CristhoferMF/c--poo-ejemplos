@@ -101,5 +101,28 @@ namespace CapaPresentacion
             ProductoNE productoNE = new ProductoNE();
             dgvBuscar.DataSource = productoNE.BuscarProducto(condicion);
         }
+
+        private void dgvBuscar_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvBuscar.SelectedRows.Count > 0)
+            {
+                DataGridViewRow miFila = dgvBuscar.SelectedRows[0];
+                txtId.Text = miFila.Cells["id"].Value.ToString();
+                txtDescripcion.Text = miFila.Cells["descripcion"].Value.ToString();
+                txtCategoria.Text = miFila.Cells["categoria"].Value.ToString();
+                txtPrecio.Text = miFila.Cells["precio"].Value.ToString();
+
+            }
+        }
+
+        private void dgvBuscar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

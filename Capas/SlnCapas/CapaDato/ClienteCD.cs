@@ -101,6 +101,46 @@ namespace CapaDato
                 throw;
             }
         }
+        public List<ClienteCE> BuscarProducto(string condicion)
+        {
+            try
+            {
+                //crear el objeto de la conexion
+                ConexionCD conexion = new ConexionCD();
+                //crear el objeto sqlConnection
+                SqlConnection sql = conexion.ConectarSQL();
+                //aperturamos la conexion
+                sql.Open();
+                //crear un coomando
+                SqlCommand cmd = sql.CreateCommand();
+                //tipo de coomando
+                cmd.CommandType = CommandType.Text;
+                //Asigno la instruccion Sql
+                cmd.CommandText = "select * from cliente where nombre like '%' + @nombre + '%'";
+                cmd.Parameters.AddWithValue("@nombre", condicion);
+                //Ejecutar el comando
+                SqlDataReader dr = cmd.ExecuteReader();
+                //Declarar la coleccion 
+                List<ClienteCE> miLista = new List<ClienteCE>();
+                //Leer SqlDataReader
+                while (dr.Read())
+                {
+                    ClienteCE clienteCE = new ClienteCE();
+                    clienteCE.id = Convert.ToInt32(dr["id"].ToString());
+                    clienteCE.nombre = dr["nombre"].ToString();
+                    clienteCE.numruc = dr["numruc"].ToString();
+                    clienteCE.direccion = dr["direccion"].ToString();
+                    clienteCE.telefono = dr["telefono"].ToString();
+                    miLista.Add(clienteCE);
+                }
+                return miLista;
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                throw;
+            }
+        }
 
     }
 }

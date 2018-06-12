@@ -85,5 +85,34 @@ namespace CapaPresentacion
             limpiarControles();
             txtId.Focus();
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string condicion = txtBuscar.Text;
+            ClienteNE clienteNE = new ClienteNE();
+            dgvBuscar.DataSource = clienteNE.BuscarProducto(condicion);
+            for (int i = 0; i < dgvBuscar.Columns.Count; i++)
+            {
+                dgvBuscar.AutoResizeColumn(i);
+            }
+        }
+
+        private void dgvBuscar_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvBuscar.SelectedRows.Count > 0)
+            {
+                DataGridViewRow miFila = dgvBuscar.SelectedRows[0];
+                txtId.Text = miFila.Cells["id"].Value.ToString();
+                txtNombre.Text = miFila.Cells["nombre"].Value.ToString();
+                txtRuc.Text = miFila.Cells["numruc"].Value.ToString();
+                txtDireccion.Text = miFila.Cells["direccion"].Value.ToString();
+                txtTelefono.Text = miFila.Cells["telefono"].Value.ToString();
+            }
+        }
     }
 }

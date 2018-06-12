@@ -47,6 +47,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
             this.timFechaActual = new System.Windows.Forms.Timer(this.components);
+            this.btnGuardarVenta = new System.Windows.Forms.Button();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,6 +65,7 @@
             // 
             // txtFechaVenta
             // 
+            this.txtFechaVenta.Enabled = false;
             this.txtFechaVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFechaVenta.Location = new System.Drawing.Point(95, 12);
             this.txtFechaVenta.Name = "txtFechaVenta";
@@ -80,6 +84,7 @@
             // 
             // txtIdCliente
             // 
+            this.txtIdCliente.Enabled = false;
             this.txtIdCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdCliente.Location = new System.Drawing.Point(95, 47);
             this.txtIdCliente.Name = "txtIdCliente";
@@ -98,6 +103,7 @@
             // 
             // txtIdProducto
             // 
+            this.txtIdProducto.Enabled = false;
             this.txtIdProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdProducto.Location = new System.Drawing.Point(95, 93);
             this.txtIdProducto.Name = "txtIdProducto";
@@ -128,6 +134,7 @@
             // 
             // txtNombreCliente
             // 
+            this.txtNombreCliente.Enabled = false;
             this.txtNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreCliente.Location = new System.Drawing.Point(224, 47);
             this.txtNombreCliente.Name = "txtNombreCliente";
@@ -136,6 +143,7 @@
             // 
             // txtNombreProducto
             // 
+            this.txtNombreProducto.Enabled = false;
             this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreProducto.Location = new System.Drawing.Point(224, 93);
             this.txtNombreProducto.Name = "txtNombreProducto";
@@ -153,6 +161,7 @@
             // 
             // txtPrecioProducto
             // 
+            this.txtPrecioProducto.Enabled = false;
             this.txtPrecioProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecioProducto.Location = new System.Drawing.Point(543, 93);
             this.txtPrecioProducto.Name = "txtPrecioProducto";
@@ -194,6 +203,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Agregar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dgvDetalle
             // 
@@ -209,21 +219,52 @@
             this.timFechaActual.Interval = 1000;
             this.timFechaActual.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnGuardarVenta
+            // 
+            this.btnGuardarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarVenta.Location = new System.Drawing.Point(12, 517);
+            this.btnGuardarVenta.Name = "btnGuardarVenta";
+            this.btnGuardarVenta.Size = new System.Drawing.Size(138, 30);
+            this.btnGuardarVenta.TabIndex = 2;
+            this.btnGuardarVenta.Text = "Guardar venta";
+            this.btnGuardarVenta.UseVisualStyleBackColor = true;
+            this.btnGuardarVenta.Click += new System.EventHandler(this.btnGuardarVenta_Click);
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(713, 521);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(82, 26);
+            this.txtTotal.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(664, 529);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Total";
+            // 
             // FrmVentaDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 515);
+            this.ClientSize = new System.Drawing.Size(810, 559);
             this.Controls.Add(this.dgvDetalle);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnBuscarProducto);
+            this.Controls.Add(this.btnGuardarVenta);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnBuscarCliente);
             this.Controls.Add(this.txtIdProducto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtIdCliente);
+            this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.txtCantidadProducto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPrecioProducto);
@@ -260,5 +301,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dgvDetalle;
         private System.Windows.Forms.Timer timFechaActual;
+        private System.Windows.Forms.Button btnGuardarVenta;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label label7;
     }
 }

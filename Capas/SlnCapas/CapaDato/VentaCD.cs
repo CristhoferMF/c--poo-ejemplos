@@ -31,7 +31,7 @@ namespace CapaDato
                 SqlCommand cmd = cn.CreateCommand();
                 //Tipo de comando
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into venta(fecventa,idCliente) value (@fecventa,@idCliente)";
+                cmd.CommandText = "insert into venta(fecventa,idCliente) values (@fecventa,@idCliente)";
                 //Vincular el controolde transacciones con el comando 
                 cmd.Transaction = tr;
                 //Asignar valores a lso sagrados

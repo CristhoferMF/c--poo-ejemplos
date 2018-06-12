@@ -23,6 +23,8 @@ namespace CapaPresentacion
         private void FrmCliente_Load(object sender, EventArgs e)
         {
             txtId.Focus();
+            ClienteNE clienteNE = new ClienteNE();
+            dgvBuscar.DataSource = clienteNE.BuscarProducto("");
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

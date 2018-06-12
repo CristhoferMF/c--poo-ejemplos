@@ -27,17 +27,17 @@ namespace CapaDato
                 SqlCommand cmd = cn.CreateCommand();
                 //Tipo de comando
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into detalle(idVenta,idProducto,cantidad) value (@idVenta,@idProducto,@cantidad)";
+                cmd.CommandText = "insert into detalle(idVenta,idProducto,cantidad) values (@idVenta,@idProducto,@cantidad)";
                 //Vincular el controolde transacciones con el comando 
 
                   //****************//*******/**********//
-                 /*******/cmd.Transaction = tr;//****//
+                 cmd.Transaction = tr;
                 //***************//*****************//
 
                 //Asignar valores a lso sagrados
                 cmd.Parameters.AddWithValue("@idVenta", detallleCE.idVenta);
                 cmd.Parameters.AddWithValue("@idProducto", detallleCE.idProducto);
-                cmd.Parameters.AddWithValue("@cantiad", detallleCE.cantidad);
+                cmd.Parameters.AddWithValue("@cantidad", detallleCE.cantidad);
 
                 try
                 {

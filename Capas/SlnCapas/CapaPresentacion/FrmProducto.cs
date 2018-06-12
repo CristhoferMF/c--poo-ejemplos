@@ -22,6 +22,8 @@ namespace CapaPresentacion
         private void FrmProducto_Load(object sender, EventArgs e)
         {
             txtId.Focus();
+            ProductoNE productoNE = new ProductoNE();
+            dgvBuscar.DataSource = productoNE.BuscarProducto("");
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
